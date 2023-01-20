@@ -1,0 +1,100 @@
+<div>
+
+  <div class="submit-form">
+    <h2>Write A New Tutorial</h2>
+    <div *ngIf="!submitted">
+      <mat-form-field class="full-width">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          required
+          type="text"
+          id="title"
+          [(ngModel)]="tutorial.title"
+          name="title"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          required
+          type="text"
+          id="description"
+          [(ngModel)]="tutorial.description"
+          name="description"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Text</mat-label>
+        <textarea
+          matInput
+          matTextareaAutosize
+          required
+          id="text"
+          [(ngModel)]="tutorial.text"
+          name="text"
+          rows="20"
+        ></textarea>
+      </mat-form-field>
+      <button mat-flat-button (click)="saveTutorial()" color="accent">
+        <mat-icon>save</mat-icon>
+        Save Tutorial
+      </button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Tutorial was submitted successfully!</h4>
+      <button mat-flat-button (click)="newTutorial()" color="accent">Add Another Tutorial</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="tutorial.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="tutorial.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Text</label>
+        <textarea
+          class="form-control"
+          id="text"
+          required
+          [(ngModel)]="tutorial.text"
+          name="text"
+          rows="20"
+        ></textarea>
+      </div>
+
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Tutorial was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,32 @@
+<form
+  #myForm="ngForm"
+  (ngSubmit)="onSubmit(myForm, $event)"
+  class="contact-form"
+>
+  <h2>Contact</h2>
+  <mat-form-field class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="user_name" required />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" name="user_email" required />
+  </mat-form-field>
+
+  <mat-form-field class="full-width" floatPlaceholder="auto">
+    <mat-label>Your Message</mat-label>
+    <textarea
+      matInput
+      matTextareaAutosize
+      required
+      rows="15"
+      placeholder=""
+    ></textarea>
+  </mat-form-field>
+
+  <button mat-flat-button class="half-width" color="accent">
+    <mat-icon>send</mat-icon>
+    Send Your Message
+  </button>
+</form>

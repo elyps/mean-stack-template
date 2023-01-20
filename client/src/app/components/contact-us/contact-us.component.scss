@@ -1,0 +1,16 @@
+.full-width {
+  width: 100%;
+}
+.half-width {
+  width: 50%;
+  margin: auto;
+}
+
+.contact-form {
+  width: 900px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem auto 0;
+}

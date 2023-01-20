@@ -1,0 +1,34 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.card {
+  width: 95% !important;
+  height: 95% !important;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto 0 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.grid-tile {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around !important;
+  margin: auto;
+}
