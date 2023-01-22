@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage(): void {
-    setTimeout(function() { window.location.href = '/profile'; }, 2000);
+    setTimeout(function() { window.location.href = '/profile'; }, 5000);
   }
 
 }

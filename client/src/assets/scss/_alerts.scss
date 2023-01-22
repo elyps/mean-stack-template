@@ -1,0 +1,29 @@
+.alert-danger {
+  color: rgba(233, 30, 99, 1.00);
+  border: 1px solid rgba(233, 30, 99, 1.00) !important;
+  background: rgba(233, 30, 99, 0.30) !important;
+  margin: 1rem auto;
+  text-align: center;
+  width: 100%;
+  box-shadow: none !important;
+}
+
+.alert-warning {
+  color: rgba(255, 158, 11, 1.00) !important;
+  border: 1px solid rgba(255, 158, 11, 1.00) !important;
+  background: rgba(255, 158, 11, 0.30) !important;
+  margin: 1rem auto;
+  text-align: center;
+  width: 100%;
+  box-shadow: none !important;
+}
+
+.alert-success {
+  color: rgba(40, 167, 69, 1.00) !important;
+  border: 1px solid rgba(40, 167, 69, 1.00) !important;
+  background: rgba(40, 167, 69, 0.30) !important;
+  margin: 1rem auto;
+  text-align: center;
+  width: 100%;
+  box-shadow: none !important;
+}

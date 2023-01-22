@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tutorial } from 'src/app/models/tutorial.model';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
@@ -16,10 +17,12 @@ export class AddTutorialComponent implements OnInit {
     text: ''
   };
   submitted = false;
+  currentUser: any;
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private tutorialService: TutorialService, private token: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
   }
 
   saveTutorial(): void {

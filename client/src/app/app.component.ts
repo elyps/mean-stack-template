@@ -45,11 +45,11 @@ export class AppComponent {
       if (darkMode) {
         this.overlay.getContainerElement().classList.add(darkClassName);
         localStorage.setItem('darkMode', 'true');
-        this.openSnackBar('Dark Mode Activated!','Close');
+        // this.openSnackBar('Dark Mode Activated!','Close');
       } else {
         this.overlay.getContainerElement().classList.remove(darkClassName);
         localStorage.removeItem('darkMode');
-        this.openSnackBar('Light Mode Activated!','Close');
+        // this.openSnackBar('Light Mode Activated!','Close');
       }
     });
     const ls = localStorage.getItem('darkMode');

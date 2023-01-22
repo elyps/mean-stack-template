@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { UserService } from '../../services/user.service';
 })
 export class BoardAdminComponent implements OnInit {
   content?: string;
+  currentUser: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private token: TokenStorageService) { }
 
   ngOnInit(): void {
     this.userService.getAdminBoard().subscribe({
@@ -20,5 +22,6 @@ export class BoardAdminComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     });
+    this.currentUser = this.token.getUser();
   }
 }

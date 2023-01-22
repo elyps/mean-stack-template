@@ -1,5 +1,12 @@
-<div class="container">
-  <header class="jumbotron">
-    <h1>{{ content }}</h1>
-  </header>
-</div>
+<h2>{{ content }}</h2>
+
+<ng-template [ngIf]="currentUser.accessToken" [ngIfElse]="loggedOut">
+  <!-- <div class="container" *ngIf="currentUser.roles.includes('ROLE_ADMIN') else loggedOut"> -->
+      <h1>Welcome {{ currentUser.name }}</h1>
+      <button mat-flat-button routerLink="/add">Add Tutorial</button>
+  <!-- </div> -->
+</ng-template>
+
+<ng-template #loggedOut>
+  <p>Unauthorized. Please login and verify that you have the correct role. Thank you.</p>
+</ng-template>

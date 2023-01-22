@@ -1,10 +1,10 @@
-<mat-card class="card" style="display: flex; margin: 3rem auto 0 auto;">
+<mat-card class="card" style="display: flex; margin: 3rem auto 0 auto;z-index: 5000;">
   <mat-card-header style="display: flex; margin: 0 auto 1rem auto; text-align: center;">
     <!-- <div mat-card-avatar class="header-image"></div> -->
-    <mat-card-title>Login</mat-card-title>
-    <mat-card-subtitle>Secure login to your account</mat-card-subtitle>
+    <mat-card-title *ngIf="!isLoggedIn">Login</mat-card-title>
+    <mat-card-subtitle *ngIf="!isLoggedIn">Secure login to your account</mat-card-subtitle>
   </mat-card-header>
-  <div mat-card-avatar class="header-image" style="width: 150px; height: 150px; display: flex; margin: 0 auto 1rem auto;"></div>
+  <div mat-card-avatar *ngIf="!isLoggedIn" class="header-image" style="width: 150px; height: 150px; display: flex; margin: 0 auto 1rem auto;"></div>
   <!-- <img mat-card-image src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Avatar Image"> -->
   <mat-card-content>
 
@@ -76,7 +76,7 @@
         </mat-error> -->
       </mat-form-field>
 
-      
+
 
       <!-- <div
         class="alert alert-danger"
@@ -92,15 +92,21 @@
 
     </form>
 
-    <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ roles }}.
+
+
+    <div *ngIf="isLoggedIn">
+      <div class="alert-success">
+        Logged in as <h2>{{ form.username }}</h2>You're authorized as {{ roles }}.
+      </div>
+      <h3 style="text-align: center; font-weight: bold; margin-top: 2rem;"><mat-icon class="rotate">rotate_right</mat-icon></h3>
+      <h3 style="text-align: center; font-weight: bold; margin-top: 2rem;">Please wait ... You'll be redirected ...</h3>
     </div>
+
+
 
   </mat-card-content>
 
 </mat-card>
 
-
-
-
+<div class="overlay" *ngIf="isLoggedIn"></div>
 
