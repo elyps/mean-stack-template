@@ -1,12 +1,15 @@
-<h2>{{ content }}</h2>
-
-<ng-template [ngIf]="currentUser.accessToken" [ngIfElse]="loggedOut">
-  <!-- <div class="container" *ngIf="currentUser.roles.includes('ROLE_USER') else loggedOut"> -->
-      <h1>Welcome {{ currentUser.name }}</h1>
+<ng-template [ngIf]="currentUser" [ngIfElse]="loggedOut">
+  <!-- <div class="container" *ngIf="currentUser.roles.includes('ROLE_MODERATOR') else loggedOut"> -->
+      <h1>Welcome {{ currentUser.username }}</h1>
       <button mat-flat-button routerLink="/add">Add Tutorial</button>
   <!-- </div> -->
 </ng-template>
 
 <ng-template #loggedOut>
-  <p>Unauthorized. Please login and verify that you have the correct role. Thank you.</p>
+  <mat-card class="alert-danger">
+    <mat-card-content><h3>{{ content }}</h3></mat-card-content>
+  </mat-card>
+  <mat-card class="alert-warning">
+    <mat-card-content><h3>Unauthorized. Please login and verify that you have the correct role. Thank you.</h3></mat-card-content>
+  </mat-card>
 </ng-template>

@@ -1,5 +1,5 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Component, HostBinding, isDevMode } from '@angular/core';
+import { Component, HostBinding, isDevMode, OnInit } from '@angular/core';
 import { TokenStorageService } from './services/token-storage.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { FormControl } from '@angular/forms';
@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
@@ -19,8 +19,11 @@ export class AppComponent {
   title = "< app-template >"
   tagArr = document.getElementsByTagName("input");
   durationInSeconds = 5;
+  isOnline: boolean = false;
 
-  constructor(private tokenStorageService: TokenStorageService, private _snackBar: MatSnackBar, private overlay: OverlayContainer) { }
+  constructor(private tokenStorageService: TokenStorageService, private _snackBar: MatSnackBar, private overlay: OverlayContainer) {
+    this.isOnline = false;
+  }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
@@ -37,6 +40,11 @@ export class AppComponent {
     } else {
       console.log('Production!');
     }
+
+    this.updateOnlineStatus();
+
+    window.addEventListener('online',  this.updateOnlineStatus.bind(this));
+    window.addEventListener('offline', this.updateOnlineStatus.bind(this));
 
     this.toggleControl.valueChanges.subscribe((darkMode) => {
       const darkClassName = 'darkMode';
@@ -86,6 +94,9 @@ export class AppComponent {
     setTimeout(function() { window.location.href = './'; }, 1000);
   }
 
-
+  private updateOnlineStatus(): void {
+    this.isOnline = window.navigator.onLine;
+    console.info(`isOnline=[${this.isOnline}]`);
+  }
 
 }

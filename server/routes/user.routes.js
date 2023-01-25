@@ -10,18 +10,18 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/api/test/all", controller.allAccess);
+  app.get("/api/users/all", controller.allAccess);
 
-  app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
+  app.get("/api/users/user", [authJwt.verifyToken], controller.userBoard);
 
   app.get(
-    "/api/test/mod",
+    "/api/users/mod",
     [authJwt.verifyToken, authJwt.isModerator],
     controller.moderatorBoard
   );
 
   app.get(
-    "/api/test/admin",
+    "/api/users/admin",
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );

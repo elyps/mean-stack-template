@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from 'src/environments/environment';
 
@@ -10,6 +10,19 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent {
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  thirdFormGroup = this._formBuilder.group({
+    thirdCtrl: ['', Validators.required],
+  });
+  isLinear = false;
+
+  constructor(private _formBuilder: FormBuilder) { }
+
   onSubmit(myForm: NgForm, e: Event) {
     emailjs
       .sendForm(

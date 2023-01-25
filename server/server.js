@@ -42,6 +42,15 @@ var corsOptions = {
 
 app.use(cors(corsOptions))
 
+// var cacheOptions = {
+//   setHeaders: function (res, path, stat) {
+//     res.set('x-timestamp', Date.now()),
+//     res.set('Cache-Control: max-age=31536000')
+//   }
+// }
+
+// app.use(express.static('public', cacheOptions))
+
 app.use(
   cookieSession({
     name: "session",
