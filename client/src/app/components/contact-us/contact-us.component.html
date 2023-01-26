@@ -50,7 +50,8 @@
         <mat-label>Name</mat-label>
         <input matInput placeholder="Last name, First name" formControlName="firstCtrl" type="text" name="user_name" required>
       </mat-form-field>
-      <div>
+      <div style="display: flex;">
+        <div class="spacer"></div>
         <button mat-button matStepperNext type="button">Next</button>
       </div>
     </div>
@@ -62,7 +63,8 @@
         <mat-label>Emai</mat-label>
         <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" type="email" name="user_email" required>
       </mat-form-field>
-      <div>
+      <div style="display: flex;">
+        <div class="spacer"></div>
         <button mat-button matStepperPrevious type="button">Back</button>
         <button mat-button matStepperNext type="button">Next</button>
       </div>
@@ -83,7 +85,8 @@
         name="message"
       ></textarea>
       </mat-form-field>
-      <div>
+      <div style="display: flex;">
+        <div class="spacer"></div>
         <button mat-button matStepperPrevious type="button">Back</button>
         <button mat-button matStepperNext type="button">Next</button>
       </div>
@@ -92,13 +95,17 @@
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
-    <button mat-flat-button class="half-width" color="accent" type="submit">
+    <button mat-flat-button class="" color="primary" type="submit">
       <mat-icon>send</mat-icon>
       Send Your Message
     </button>
-    <div>
-      <button mat-button matStepperPrevious type="button">Back</button>
-      <button mat-button (click)="stepper.reset()" type="button">Reset</button>
+
+    <div style="display: flex;">
+      <div class="spacer"></div>
+      <p>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button (click)="stepper.reset()" type="button">Reset</button>
+      </p>
     </div>
   </mat-step>
 </mat-stepper>

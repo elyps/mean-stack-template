@@ -17,8 +17,6 @@
 
         <span class="spacer"></span>
 
-
-
         <!-- <mat-icon class="mr-8">brightness_5</mat-icon> -->
         <mat-icon>bedtime</mat-icon>
         <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
@@ -34,32 +32,48 @@
         <mat-icon>share</mat-icon>
       </button> -->
 
-      <span style="font-size: smaller; font-weight: 100;">Status:</span>
+        <span style="font-size: smaller; font-weight: 100">Status:</span>
 
         <button
+          *ngIf="isOnline"
           mat-flat-button
           color="primary"
-          style="margin-right: 1rem; color: rgba(40, 167, 69, 1)"
+          style="
+            margin-right: 1rem;
+            color: rgba(0, 150, 136, 1.00);
+            font-weight: bold;
+            text-transform: uppercase;
+          "
         >
           <mat-icon
-            *ngIf="isOnline"
             matTooltip="System ONLINE"
-            class="mat-18"
-            style="color: rgba(40, 167, 69, 1)"
+            class="mat-14"
+            style="color: rgba(0, 150, 136, 1.00)"
           >
             fiber_manual_record
           </mat-icon>
           Online
         </button>
 
-        <mat-icon
+        <button
           *ngIf="!isOnline"
-          matTooltip="System OFFLINE"
-          class="mat-18"
-          style="color: rgba(220, 53, 69, 1); margin-right: 1rem"
+          mat-flat-button
+          color="primary"
+          style="
+            margin-right: 1rem;
+            color: rgba(255, 64, 129, 1.00);
+            font-weight: bold;
+            text-transform: uppercase;"
         >
-          fiber_manual_record
-        </mat-icon>
+          <mat-icon
+            matTooltip="System OFFLINE"
+            class="mat-18"
+            style="color: rgba(255, 64, 129, 1.00); margin-right: 1rem"
+          >
+            fiber_manual_record
+          </mat-icon>
+          Offline
+        </button>
 
         <span *ngIf="!isLoggedIn">
           <button

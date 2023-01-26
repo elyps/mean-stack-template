@@ -5,7 +5,7 @@
 @include mat.core();
 
 $angular-primary: mat.define-palette(mat.$pink-palette, 700, 200, 700);
-$angular-accent: mat.define-palette(mat.$indigo-palette, A400, A200, A100);
+$angular-accent: mat.define-palette(mat.$teal-palette, A400, A200, A100);
 $angular-warn: mat.define-palette(mat.$red-palette);
 
 $angular-default-theme: mat.define-light-theme(

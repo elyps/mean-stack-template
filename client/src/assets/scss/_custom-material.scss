@@ -1,0 +1,18 @@
+.dark-mode .mat-step-header.cdk-keyboard-focused {
+  &:focus {
+    background-color: transparent !important;
+  }
+}
+
+.mat-step-header.cdk-keyboard-focused {
+  &:focus {
+    background-color: transparent !important;
+  }
+}
+
+.mat-vertical-stepper-content .ng-tns-c180-2 .ng-trigger .ng-trigger-verticalStepTransition mat-vertical-stepper-content-inactive
+{
+  &:focus {
+    background-color: transparent !important;
+  }
+}
